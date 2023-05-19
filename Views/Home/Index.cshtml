@@ -1,0 +1,27 @@
+﻿@model PeopleListModel
+@{
+    Layout = null;
+}
+
+<div class="text-center">
+    <h1 class="display-4">People list</h1>
+    <ul>
+        @foreach (var person in Model.people)
+        {
+            <li>@person.nickname (@person.fullname)</li>
+        }
+    </ul>
+    <h1 class="display-4">Create new person</h1>
+        
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        @Html.TextBoxFor(m => m.person.fullname)
+        @Html.TextBoxFor(m => m.person.nickname)
+        <button type="submit">
+            Submit
+        </button>
+    }
+
+    
+
+</div>
